@@ -26,7 +26,7 @@ export default function ImpactPage() {
         name: "Sarah Johnson", // This would come from your db
         booksDonated: 1243,    // This would come from your db
         schoolsHelped: 28,     // This would come from your db
-        childrenImpacted: 5600 // This would come from your db
+        // childrenImpacted: 5600 // This would come from your db
       };
       
       setDonorData(mockData);
