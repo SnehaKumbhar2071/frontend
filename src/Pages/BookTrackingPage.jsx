@@ -1,6 +1,8 @@
 import React from 'react';
-import { FiPackage, FiCheckCircle, FiClock, FiUser, FiMapPin, FiMessageSquare, FiChevronRight , FiStar } from 'react-icons/fi';
-import Navbar from "../components/Navbar"
+import { FiPackage, FiCheckCircle, FiClock, FiUser, FiMapPin, FiMessageSquare, FiChevronRight, FiStar } from 'react-icons/fi';
+import Navbar from "../components/Navbar";
+import Footer from '../components/Footer';
+
 const BookTrackingPage = () => {
   const request = {
     bookTitle: "Advanced Mathematics for Grade 12",
@@ -25,13 +27,13 @@ const BookTrackingPage = () => {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar/>
+    <div className="min-h-screen bg-[var(--light-color)] justify-center items-center">
+      <Navbar />
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4">
-          <h1 className="text-2xl font-bold text-gray-800 flex items-center">
-            <FiPackage className="mr-3 text-blue-600" />
+          <h1 className="text-2xl font-bold text-[var(--dark-color)] flex items-center">
+            <FiPackage className="mr-3 text-[var(--primary-color)]" />
             Track Your Request
           </h1>
         </div>
@@ -43,7 +45,7 @@ const BookTrackingPage = () => {
           <div className="lg:w-1/3">
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-6 border-b border-gray-100">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">Requested Book</h2>
+                <h2 className="text-lg font-semibold text-[var(--dark-color)] mb-4">Requested Book</h2>
                 <div className="flex items-center">
                   <img 
                     src={request.bookImage} 
@@ -57,52 +59,26 @@ const BookTrackingPage = () => {
                 </div>
               </div>
 
-              {/* Donor Info */}
-              <div className="p-6">
-                <h2 className="text-lg font-semibold text-gray-800 mb-4">Donor Information</h2>
-                <div className="flex items-center">
-                  <img 
-                    src={request.donorAvatar} 
-                    alt={request.donorName} 
-                    className="w-12 h-12 rounded-full border-2 border-blue-100 mr-4"
-                  />
-                  <div>
-                    <h3 className="font-medium">{request.donorName}</h3>
-                    <div className="flex items-center text-sm text-gray-600">
-                      <FiStar className="text-yellow-400 mr-1" />
-                      4.8 (12 donations)
-                    </div>
-                  </div>
-                </div>
-                <button className="mt-4 w-full bg-blue-50 text-blue-600 py-2 rounded-lg font-medium flex items-center justify-center hover:bg-blue-100 transition">
-                  <FiMessageSquare className="mr-2" />
-                  Message Donor
-                </button>
+              
+                
               </div>
             </div>
 
-            {/* Help Card */}
-            <div className="mt-6 bg-blue-50 border border-blue-100 rounded-xl p-6">
-              <h3 className="font-bold text-blue-800 mb-2">Need Help?</h3>
-              <p className="text-blue-700 text-sm mb-4">Contact the school library if you have questions about your request</p>
-              <button className="text-blue-600 font-medium text-sm hover:underline">
-                Contact Support <FiChevronRight className="inline ml-1" />
-              </button>
-            </div>
+           
           </div>
 
           {/* Tracking Section */}
           <div className="lg:w-2/3">
             <div className="bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-6 border-b border-gray-100">
-                <h2 className="text-xl font-bold text-gray-800 mb-1">Request Status</h2>
+                <h2 className="text-xl font-bold text-[var(--dark-color)] mb-1">Request Status</h2>
                 <div className="flex items-center">
                   <span className={`inline-flex items-center px-3 py-1 rounded-full text-sm font-medium ${
                     request.status === "Received" 
                       ? "bg-green-100 text-green-800" 
                       : request.status === "In Transit" 
-                        ? "bg-blue-100 text-blue-800" 
-                        : "bg-yellow-100 text-yellow-800"
+                        ? "bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)]" 
+                        : "bg-[var(--tertiary-color)] bg-opacity-10 text-[var(--dark-color)]"
                   }`}>
                     {request.status === "In Transit" && <FiPackage className="mr-1" />}
                     {request.status === "Received" && <FiCheckCircle className="mr-1" />}
@@ -127,7 +103,7 @@ const BookTrackingPage = () => {
                         step.status === "complete" 
                           ? "bg-green-100 text-green-600" 
                           : step.status === "current" 
-                            ? "bg-blue-100 text-blue-600 border-2 border-blue-300" 
+                            ? "bg-[var(--primary-color)] bg-opacity-20 text-[var(--primary-color)] border-2 border-[var(--primary-color)] border-opacity-30" 
                             : "bg-gray-100 text-gray-400"
                       }`}>
                         {step.status === "complete" ? (
@@ -139,7 +115,7 @@ const BookTrackingPage = () => {
                       <div className="flex justify-between items-start">
                         <div>
                           <h3 className={`font-medium ${
-                            step.status === "current" ? "text-blue-600" : "text-gray-700"
+                            step.status === "current" ? "text-[var(--primary-color)]" : "text-[var(--dark-color)]"
                           }`}>
                             {step.name}
                           </h3>
@@ -160,35 +136,26 @@ const BookTrackingPage = () => {
 
               {/* Meeting Details */}
               <div className="p-6">
-                <h2 className="text-xl font-bold text-gray-800 mb-4">Pickup Information</h2>
+                <h2 className="text-xl font-bold text-[var(--dark-color)] mb-4">Pickup Information</h2>
                 <div className="grid md:grid-cols-2 gap-6">
-                  <div className="bg-blue-50 rounded-lg p-4">
+                  <div className="bg-[var(--secondary-color)] bg-opacity-10 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <FiMapPin className="text-blue-600 mr-2" />
-                      <h3 className="font-medium text-blue-800">Location</h3>
+                      <FiMapPin className="text-[var(--secondary-color)] mr-2" />
+                      <h3 className="font-medium text-[var(--dark-color)]">Location</h3>
                     </div>
-                    <p className="text-gray-700">{request.meetingDetails.location}</p>
+                    <p className="text-[var(--dark-color)]">{request.meetingDetails.location}</p>
                   </div>
-                  <div className="bg-yellow-50 rounded-lg p-4">
+                  <div className="bg-[var(--tertiary-color)] bg-opacity-10 rounded-lg p-4">
                     <div className="flex items-center mb-2">
-                      <FiClock className="text-yellow-600 mr-2" />
-                      <h3 className="font-medium text-yellow-800">Time</h3>
+                      <FiClock className="text-[var(--tertiary-color)] mr-2" />
+                      <h3 className="font-medium text-[var(--dark-color)]">Time</h3>
                     </div>
-                    <p className="text-gray-700">{request.meetingDetails.time}</p>
+                    <p className="text-[var(--dark-color)]">{request.meetingDetails.time}</p>
                   </div>
                 </div>
-                <div className="mt-4 bg-gray-50 rounded-lg p-4">
-                  <h3 className="font-medium text-gray-800 mb-2">Additional Notes</h3>
-                  <p className="text-gray-700">{request.meetingDetails.notes}</p>
-                </div>
-
-                <div className="mt-6 flex flex-col sm:flex-row gap-4">
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white py-3 px-6 rounded-lg font-bold shadow-md transition flex-1">
-                    Confirm Receipt
-                  </button>
-                  <button className="bg-white border border-gray-300 hover:bg-gray-50 text-gray-800 py-3 px-6 rounded-lg font-medium shadow-sm transition flex-1">
-                    Reschedule Pickup
-                  </button>
+                <div className="mt-4 bg-[var(--light-color)] rounded-lg p-4">
+                  <h3 className="font-medium text-[var(--dark-color)] mb-2">Additional Notes</h3>
+                  <p className="text-[var(--dark-color)]">{request.meetingDetails.notes}</p>
                 </div>
               </div>
             </div>
@@ -196,7 +163,7 @@ const BookTrackingPage = () => {
             {/* Recent Activity */}
             <div className="mt-6 bg-white rounded-xl shadow-md overflow-hidden">
               <div className="p-6 border-b border-gray-100">
-                <h2 className="text-xl font-bold text-gray-800">Recent Activity</h2>
+                <h2 className="text-xl font-bold text-[var(--dark-color)]">Recent Activity</h2>
               </div>
               <div className="divide-y divide-gray-100">
                 <div className="p-6">
@@ -212,7 +179,7 @@ const BookTrackingPage = () => {
                 </div>
                 <div className="p-6">
                   <div className="flex items-start">
-                    <div className="bg-blue-100 text-blue-600 p-2 rounded-full mr-4">
+                    <div className="bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)] p-2 rounded-full mr-4">
                       <FiPackage />
                     </div>
                     <div>
@@ -224,9 +191,11 @@ const BookTrackingPage = () => {
               </div>
             </div>
           </div>
-        </div>
+        
+    
       </main>
-    </div>
+      <Footer/>
+      </div>
   );
 };
 

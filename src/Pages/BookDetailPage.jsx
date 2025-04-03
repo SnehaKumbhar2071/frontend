@@ -1,5 +1,7 @@
 import React from 'react';
 import { FiBook, FiUser, FiHeart, FiShare2, FiArrowLeft, FiCheck, FiStar } from 'react-icons/fi';
+import Navbar from '../components/Navbar';
+import Footer from '../components/Footer';
 
 const BookDetailPage = () => {
   const book = {
@@ -21,10 +23,11 @@ const BookDetailPage = () => {
 
   return (
     <div className="min-h-screen bg-gray-50">
+      <Navbar/>
       {/* Header */}
       <header className="bg-white shadow-sm">
         <div className="container mx-auto px-4 py-4 flex items-center justify-between">
-          <button className="flex items-center text-blue-600">
+          <button className="flex items-center text-blue-300">
             <FiArrowLeft className="mr-2" />
             Back to Books
           </button>
@@ -47,7 +50,7 @@ const BookDetailPage = () => {
             
             {/* Action Buttons */}
             <div className="flex space-x-4 mt-6">
-              <button className="flex-1 bg-blue-600 hover:bg-blue-700 text-white py-3 rounded-lg font-medium flex items-center justify-center transition">
+              <button className="flex-1 bg-[#adfffa] hover:bg-[#89cfca]  py-3 rounded-lg font-medium flex items-center justify-center transition">
                 <FiHeart className="mr-2" />
                 Save for Later
               </button>
@@ -130,7 +133,7 @@ const BookDetailPage = () => {
             </div>
 
             {/* CTA Section */}
-            <div className="mt-6 bg-gradient-to-r from-blue-500 to-blue-600 rounded-xl p-6 text-white">
+            <div className="mt-6 bg-[#adfffa] rounded-xl p-6 ">
               <div className="flex flex-col md:flex-row items-center justify-between">
                 <div className="mb-4 md:mb-0">
                   <h3 className="text-xl font-bold mb-2">Interested in this book?</h3>
@@ -157,6 +160,7 @@ const BookDetailPage = () => {
           </div>
         </div>
       </main>
+      <Footer/>
     </div>
   );
 };

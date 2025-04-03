@@ -139,15 +139,16 @@ function Booklist() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-50">
-      <Navbar />
+    <div className="min-h-screen bg-[var(--light-color)]">
+      <Navbar userType="ngo" />
+
       <HomeSection />
       <main className="container mx-auto px-4 py-6">
         {/* Stats */}
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div className="bg-blue-100 p-3 rounded-full mr-4">
-              <FiBook className="text-blue-600 text-2xl" />
+            <div className="bg-[var(--primary-color)] bg-opacity-10 p-3 rounded-full mr-4">
+              <FiBook className="text-[var(--primary-color)] text-2xl" />
             </div>
             <div>
               <p className="text-gray-500">Total Books Shared</p>
@@ -155,8 +156,8 @@ function Booklist() {
             </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div className="bg-green-100 p-3 rounded-full mr-4">
-              <FiHeart className="text-green-600 text-2xl" />
+            <div className="bg-[var(--secondary-color)] bg-opacity-10 p-3 rounded-full mr-4">
+              <FiHeart className="text-[var(--secondary-color)] text-2xl" />
             </div>
             <div>
               <p className="text-gray-500">Active Donors</p>
@@ -164,8 +165,8 @@ function Booklist() {
             </div>
           </div>
           <div className="bg-white p-6 rounded-lg shadow-md flex items-center">
-            <div className="bg-purple-100 p-3 rounded-full mr-4">
-              <FiUsers className="text-purple-600 text-2xl" />
+            <div className="bg-[var(--tertiary-color)] bg-opacity-10 p-3 rounded-full mr-4">
+              <FiUsers className="text-[var(--tertiary-color)] text-2xl" />
             </div>
             <div>
               <p className="text-gray-500">Students Benefited</p>
@@ -176,7 +177,7 @@ function Booklist() {
 
         {/* Featured Books Carousel */}
         <section className="mb-12 relative">
-          <h2 className="text-2xl font-bold mb-6">
+          <h2 className="text-2xl font-bold mb-6 text-[var(--dark-color)]">
             Featured {activeTab === "donate" ? "Available" : "Requested"} Books
           </h2>
           <div className="relative bg-white rounded-lg shadow-lg overflow-hidden h-64">
@@ -199,15 +200,15 @@ function Booklist() {
                     />
                   </div>
                   <div className="w-2/3 p-6 flex flex-col justify-center">
-                    <h3 className="text-2xl font-bold mb-2">{book.title}</h3>
+                    <h3 className="text-2xl font-bold mb-2 text-[var(--dark-color)]">{book.title}</h3>
                     <div className="flex flex-wrap gap-2 mb-3">
-                      <span className="bg-blue-100 text-blue-800 px-2 py-1 rounded text-sm">
+                      <span className="bg-[var(--primary-color)] bg-opacity-10 text-[var(--primary-color)] px-2 py-1 rounded text-sm">
                         {book.grade}
                       </span>
-                      <span className="bg-green-100 text-green-800 px-2 py-1 rounded text-sm">
+                      <span className="bg-[var(--secondary-color)] bg-opacity-10 text-[var(--secondary-color)] px-2 py-1 rounded text-sm">
                         {book.condition}
                       </span>
-                      <span className="bg-purple-100 text-purple-800 px-2 py-1 rounded text-sm">
+                      <span className="bg-[var(--tertiary-color)] bg-opacity-10 text-[var(--tertiary-color)] px-2 py-1 rounded text-sm">
                         {book.category}
                       </span>
                     </div>
@@ -222,8 +223,8 @@ function Booklist() {
                     <button
                       className={`px-4 py-2 rounded-md font-semibold w-48 ${
                         activeTab === "donate"
-                          ? "bg-green-600 hover:bg-green-700 text-white"
-                          : "bg-blue-600 hover:bg-blue-700 text-white"
+                          ? "bg-[var(--primary-color)] hover:bg-[var(--accent-color)] text-white"
+                          : "bg-[var(--secondary-color)] hover:bg-[var(--secondary-color)] text-white"
                       }`}
                     >
                       {activeTab === "donate"
@@ -235,13 +236,13 @@ function Booklist() {
               ))}
             <button
               onClick={prevSlide}
-              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 text-gray-800 p-2 rounded-full shadow-md hover:bg-opacity-100 transition"
+              className="absolute left-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 text-[var(--dark-color)] p-2 rounded-full shadow-md hover:bg-opacity-100 transition"
             >
               <FiChevronLeft className="w-6 h-6" />
             </button>
             <button
               onClick={nextSlide}
-              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 text-gray-800 p-2 rounded-full shadow-md hover:bg-opacity-100 transition"
+              className="absolute right-4 top-1/2 -translate-y-1/2 bg-white bg-opacity-80 text-[var(--dark-color)] p-2 rounded-full shadow-md hover:bg-opacity-100 transition"
             >
               <FiChevronRight className="w-6 h-6" />
             </button>
@@ -250,7 +251,7 @@ function Booklist() {
 
         {/* Filter */}
         <div className="mb-6">
-          <h2 className="text-2xl font-bold mb-4">
+          <h2 className="text-2xl font-bold mb-4 text-[var(--dark-color)]">
             {activeTab === "donate"
               ? "Available Books to Request"
               : "Requested Books Needed"}
@@ -260,7 +261,7 @@ function Booklist() {
               onClick={() => setActiveFilter("all")}
               className={`px-4 py-2 rounded-full ${
                 activeFilter === "all"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[var(--primary-color)] text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >
@@ -270,7 +271,7 @@ function Booklist() {
               onClick={() => setActiveFilter("textbooks")}
               className={`px-4 py-2 rounded-full ${
                 activeFilter === "textbooks"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[var(--primary-color)] text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >
@@ -280,7 +281,7 @@ function Booklist() {
               onClick={() => setActiveFilter("workbooks")}
               className={`px-4 py-2 rounded-full ${
                 activeFilter === "workbooks"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[var(--primary-color)] text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >
@@ -290,7 +291,7 @@ function Booklist() {
               onClick={() => setActiveFilter("literature")}
               className={`px-4 py-2 rounded-full ${
                 activeFilter === "literature"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[var(--primary-color)] text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >
@@ -300,7 +301,7 @@ function Booklist() {
               onClick={() => setActiveFilter("reference")}
               className={`px-4 py-2 rounded-full ${
                 activeFilter === "reference"
-                  ? "bg-blue-600 text-white"
+                  ? "bg-[var(--primary-color)] text-white"
                   : "bg-gray-200 text-gray-800"
               }`}
             >

@@ -16,14 +16,14 @@ const HomeSection = () => {
   ];
 
   return (
-    <section className="home bg-gray-300 py-8" id="home">
+    <section className="home bg-gradient-to-r from-[var(--light-color)] to-[rgba(255,159,28,0.1)] py-20 px-6 py-8" id="home">
       <div className="row flex flex-col md:flex-row items-center justify-center">
         <div className="content text-center md:text-left p-4">
           <h3 className="text-5xl font-bold text-black mb-4">Recently uploaded Books!!!</h3>
           <p className="text-xl text-gray-600 leading-relaxed mb-6">
             There is good news for all of you! New books are added!!!
           </p>
-          <a href="#" className="btn bg-blue-500 text-white py-2 px-4 rounded-lg hover:bg-blue-600 transition">
+          <a href="#" className="btn bg-[#f89494] font-bold py-2 px-4 rounded-lg hover:bg-[#d67d7d] transition">
             Request Now
           </a>
         </div>
